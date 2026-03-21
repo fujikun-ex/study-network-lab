@@ -152,3 +152,35 @@ Closes #<issue番号>
 → コミットメッセージ: feat(auth): add login functionality (#42)
 → git commit -m "feat(auth): add login functionality (#42)"
 ```
+
+---
+
+## Co-Authored-By トレーラー
+
+Claudeと一緒に作業した場合は、コミットメッセージの末尾に以下のトレーラーを追加する：
+
+```
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
+```
+
+### 例
+
+```
+feat(auth): add login functionality (#42)
+
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
+```
+
+### ルール
+
+- Claudeが実装・提案・レビューに関与したコミットには必ず追加する
+- `git commit -m` の代わりに heredoc を使ってトレーラーを含める：
+
+```bash
+git commit -m "$(cat <<'EOF'
+feat(auth): add login functionality (#42)
+
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
+EOF
+)"
+```
